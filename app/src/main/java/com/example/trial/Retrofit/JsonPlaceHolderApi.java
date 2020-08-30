@@ -15,6 +15,6 @@ public interface JsonPlaceHolderApi {
     Call<Data> getData(@Query("api_key") String api_key,
                        @Query("date") String s);
 
-    @GET("search?q=apollo%2011")
-    Call<Root> getRoot();
+    @GET("search")
+    Call<Root> getRoot(@Query("q") String search);
 }

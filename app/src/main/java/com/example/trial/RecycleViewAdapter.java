@@ -22,7 +22,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     private ArrayList<String> mDates=new ArrayList<>();
     private Context mContext;
 
-    public RecycleViewAdapter(ArrayList<String> mTitles, ArrayList<String> mHrefs, ArrayList<String> mDates, Context mContext) {
+    public RecycleViewAdapter(Context mContext, ArrayList<String> mTitles, ArrayList<String> mHrefs, ArrayList<String> mDates) {
         this.mTitles = mTitles;
         this.mHrefs = mHrefs;
         this.mDates = mDates;
@@ -43,7 +43,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: ");
          holder.title.setText(mTitles.get(position));
-         holder.parentlayout.setOnClickListener(new View.OnClickListener() {
+        holder.href.setText(mHrefs.get(position));
+        holder.Date.setText(mDates.get(position));
+
+        holder.parentlayout.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  Log.d(TAG, "onClick: clicked on"+mTitles.get(position));
