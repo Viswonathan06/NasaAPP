@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fgdgd"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Result"
+            style="@style/TextAppearance.AppCompat.Display4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-black"
+            android:text="NASA"
+            android:textColor="#91F3FF" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="PICTURE OF THE DAY!"
+        android:textAlignment="center"
+        android:textColor="#DACAFF" />
+
+    <TextView
+        android:id="@+id/selectDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center"
+        android:hint="Select the date"
+        android:textAlignment="center"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:textColorHint="#D7E0FF" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    >
+    <Button
+        android:id="@+id/showPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:fontFamily="sans-serif-condensed-light"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:text="Get info" />
+    <Button
+        android:id="@+id/Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:fontFamily="sans-serif-condensed-light"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:text="Search" />
+
+</LinearLayout>
+
+
+
+</LinearLayout>
+
+
