@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchDetails"></activity>
-        <activity android:name=".GetPictureDetails"></activity>
+        <activity android:name=".SearchPicture"></activity>
+        <activity android:name=".SearchDetails" />
+        <activity android:name=".GetPictureDetails" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

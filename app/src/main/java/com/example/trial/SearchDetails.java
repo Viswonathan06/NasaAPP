@@ -41,12 +41,16 @@ public class SearchDetails extends AppCompatActivity {
     private ArrayList<String> mTitles=new ArrayList<>();
     private ArrayList<String> mHrefs=new ArrayList<>();
     private ArrayList<String> mDates=new ArrayList<>();
+    private ArrayList<String> mNasaID=new ArrayList<>();
+    private ArrayList<String> mDescript=new ArrayList<>();
+
+
 
     String m="";
     private void initRecyclerView(){
         Log.d("initRecyclerView","Recycler VIew Init'd");
         RecyclerView recyclerView=findViewById(R.id.RecyclerView);
-        RecycleViewAdapter adapter=new RecycleViewAdapter(SearchDetails.this,mTitles,mHrefs,mDates);
+        RecycleViewAdapter adapter=new RecycleViewAdapter(SearchDetails.this,mTitles,mHrefs,mDates,mNasaID,mDescript);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchDetails.this));
     }
@@ -90,6 +94,9 @@ public class SearchDetails extends AppCompatActivity {
                                 mTitles.add(items.getData().get(0).getTitle());
                                 mDates.add(items.getData().get(0).getDate_created());
                                 mHrefs.add(items.getHref());
+                                mNasaID.add(items.getData().get(0).getNasa_id());
+                                mDescript.add(items.getData().get(0).getDescription());
+
                             }
                             initRecyclerView();
                             if(mTitles.isEmpty()){

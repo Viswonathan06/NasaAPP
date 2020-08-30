@@ -17,4 +17,7 @@ public interface JsonPlaceHolderApi {
 
     @GET("search")
     Call<Root> getRoot(@Query("q") String search);
+
+    @GET("{asset}/{NasaID}")
+    Call<com.example.trial.Model.ClickSearch.Root> getRoot(@Path("asset") String asset,@Path("NasaID") String NasaId);
 }
