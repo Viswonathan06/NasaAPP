@@ -50,22 +50,31 @@
         android:hint="Select the date"
         android:textAlignment="center"
         style="@style/TextAppearance.AppCompat.Large"
-        android:textColorHint="#D7E0FF" />
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    >
+        android:textColorHint="#D7E0FF"
+        android:textColor="#D7E0FF"/>
+
     <Button
         android:id="@+id/showPic"
+        style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        style="@style/TextAppearance.AppCompat.Medium"
-        android:fontFamily="sans-serif-condensed-light"
-        android:textColor="@android:color/white"
         android:layout_gravity="center"
-        android:text="Get info" />
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Get info"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/TextAppearance.AppCompat.Display1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Search the NASA Library!"
+        android:textAlignment="center"
+        android:textColor="#DACAFF" />
     <Button
         android:id="@+id/Search"
         android:layout_width="wrap_content"
@@ -73,11 +82,15 @@
         android:layout_weight="1"
         style="@style/TextAppearance.AppCompat.Medium"
         android:fontFamily="sans-serif-condensed-light"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/background_dark"
         android:layout_gravity="center"
         android:text="Search" />
 
-</LinearLayout>
+
+
+
+
+
 
 
 

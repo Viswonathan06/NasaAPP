@@ -90,7 +90,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                              intent.putExtra("Picture Title",mTitles.get(position));
                              intent.putExtra("Picture Descript",mDescript.get(position));
                              intent.putExtra("Date",mDates.get(position));
-                             intent.putExtra("Picture url",result.getCollection().getItems().get(0).getHref()); //Link for Picture url is passed but doesnt work
+
+                             String m=result.getCollection().getItems().get(0).getHref();
+                             intent.putExtra("Picture url",m);
+                             //Link for Picture url is passed but doesn't work
                              mContext.startActivity(intent);
                          }
                      }

@@ -39,10 +39,12 @@ public class SearchPicture extends AppCompatActivity {
         mDescript=getIntent().getStringExtra("Picture Descript");
         mDate=getIntent().getStringExtra("Date");
         mUrl=getIntent().getStringExtra("Picture url");
+
+
         Copyright.setText(mUrl);
-        Glide.with(SearchPicture.this).load(mUrl).into(picture);
         Result.setText(mTitles);
         Date.setText(mDate);
+        Glide.with(this).load(mUrl).into(picture);
         //Descrip.setText(mDescript);
 
 

@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -62,15 +64,22 @@ public class SearchDetails extends AppCompatActivity {
         SearchBox=findViewById(R.id.searchbox);
         Search=findViewById(R.id.Search);
         RESULT=findViewById(R.id.result);
+        RESULT.setText("");
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl("https://images-api.nasa.gov/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         jsonPlaceHolderApi=retrofit.create(JsonPlaceHolderApi.class);
-
-        Search.setOnClickListener(new View.OnClickListener() {
+        SearchBox.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                RESULT.setText("");
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                RESULT.setText("");
                 mDates.clear();
                 mHrefs.clear();
                 mTitles.clear();
@@ -82,7 +91,9 @@ public class SearchDetails extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Root> call, Response<Root> response) {
                         if (!response.isSuccessful()) {
-                            RESULT.setText("Code :" + response.code());
+                            if(!SearchBox.getText().toString().isEmpty()) {
+                                RESULT.setText("Code :" + response.code());
+                            }
                             return;
                         }
                         else {
@@ -116,7 +127,21 @@ public class SearchDetails extends AppCompatActivity {
                     }
                 });
             }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                RESULT.setText("");
+
+            }
         });
+       /* Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        */
 
 
 
