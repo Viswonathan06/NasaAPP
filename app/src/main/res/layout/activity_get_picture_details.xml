@@ -39,11 +39,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@drawable/curved_layout1"
             android:fontFamily="sans-serif-black"
-            android:text=""
             android:padding="15dp"
+            android:text=""
             android:textAlignment="center"
-            android:textColor="@android:color/holo_green_dark" />
+            android:textColor="#252525" />
 
         <TextView
             android:id="@+id/Description"
@@ -51,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@drawable/recycle_curved"
             android:fontFamily="sans-serif-condensed-light"
             android:text=""
             android:padding="15dp"
@@ -95,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-black"
-            android:text="Flip your phone for full screen vie"
+            android:text="Flip your phone for full screen view!"
             android:textAlignment="center"
             android:textColor="@android:color/holo_green_dark" />
 

@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.trial.Model.ClickSearch.Root;
 import com.example.trial.Retrofit.JsonPlaceHolderApi;
@@ -87,7 +88,30 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
                     String m=result.getCollection().getItems().get(0).getHref();
                     m=m.replace("http","https");
-                    Glide.with(mContext).load(m).apply(new RequestOptions().circleCrop()).into(holder.imageView);
+                    Glide.with(mContext)
+                            .load(m)
+                            .apply(new RequestOptions().override(400,400))
+                            .apply(new RequestOptions().circleCrop())
+                            .apply(new RequestOptions()
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL))
+                            .into(holder.imageView);
+
+                    holder.parentlayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.d(TAG, "onClick: clicked on"+mTitles.get(position));
+                            Toast.makeText(mContext, mTitles.get(position), Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(mContext,SearchPicture.class);
+                            intent.putExtra("Picture Title",mTitles.get(position));
+                            intent.putExtra("Picture Descript",mDescript.get(position));
+                            intent.putExtra("Date",mDates.get(position));
+
+                            String m=result.getCollection().getItems().get(0).getHref();
+                            intent.putExtra("Picture url",m);
+                            mContext.startActivity(intent);
+
+                        }
+                    });
                 }
             }
 
@@ -102,46 +126,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
 
         //Glide.with(mContext).load().into(holder.imageView);
-        holder.parentlayout.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Log.d(TAG, "onClick: clicked on"+mTitles.get(position));
-                 Toast.makeText(mContext, mTitles.get(position), Toast.LENGTH_SHORT).show();
-                 Retrofit retrofit=new Retrofit.Builder()
-                         .baseUrl("https://images-api.nasa.gov/")
-                         .addConverterFactory(GsonConverterFactory.create())
-                         .build();
-                 jsonPlaceHolderApi=retrofit.create(JsonPlaceHolderApi.class);
-                 Call<Root> call=jsonPlaceHolderApi.getRoot("asset",mNasaID.get(position));
-                 call.enqueue(new Callback<Root>() {
-                     @Override
-                     public void onResponse(Call<Root> call, Response<Root> response) {
-                         if (!response.isSuccessful()) {
-                             Toast.makeText(mContext, "Code: "+response.code(), Toast.LENGTH_SHORT).show();
-                             return;
-                         }
-                         else {
-                             Root result=response.body();
-                             Intent intent=new Intent(mContext,SearchPicture.class);
-                             intent.putExtra("Picture Title",mTitles.get(position));
-                             intent.putExtra("Picture Descript",mDescript.get(position));
-                             intent.putExtra("Date",mDates.get(position));
 
-                             String m=result.getCollection().getItems().get(0).getHref();
-                             intent.putExtra("Picture url",m);
-                             mContext.startActivity(intent);
-                         }
-                     }
-
-                     @Override
-                     public void onFailure(Call<Root> call, Throwable t) {
-                         Toast.makeText(mContext, "Code: "+t.getMessage(), Toast.LENGTH_SHORT).show();
-
-                     }
-                 });
-
-             }
-         });
     }
 
     @Override

@@ -17,6 +17,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="15dp"
             android:src="@drawable/ic_launcher_background" >
 
         </ImageView>
@@ -27,6 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:padding="15dp"
+
             android:fontFamily=""
             android:layout_weight="1"
             android:textColor="#7899C3">
@@ -40,6 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:padding="15dp"
+            android:background="@drawable/recycle_curved"
             android:text=""
             android:fontFamily="sans-serif-black"
             android:textColor="@android:color/holo_green_dark"
@@ -52,14 +57,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text=""
+            android:padding="15dp"
+
             android:fontFamily="sans-serif-condensed-light"
             android:textAlignment="center"
             android:textColor="#C0D88F" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="15dp"
+
             android:orientation="horizontal">
 
             <TextView

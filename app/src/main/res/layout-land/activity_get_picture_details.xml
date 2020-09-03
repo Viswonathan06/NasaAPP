@@ -14,12 +14,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:padding="15dp"
-            android:scaleType="fitXY"
-
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:srcCompat="@drawable/fgdgd" />
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            tools:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/vid_link"
@@ -30,6 +28,7 @@
             android:layout_weight="1"
             android:visibility="gone"
             android:fontFamily=""
+            android:padding="15dp"
             android:textColor="#7899C3">
 
 
@@ -41,12 +40,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@drawable/curved_layout1"
             android:fontFamily="sans-serif-black"
-            android:text=""
-
             android:padding="15dp"
+            android:text=""
             android:textAlignment="center"
-            android:textColor="@android:color/holo_green_dark" />
+            android:textColor="#252525" />
 
         <TextView
             android:id="@+id/Description"
@@ -54,19 +53,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/recycle_curved"
             android:fontFamily="sans-serif-condensed-light"
             android:text=""
-            android:visibility="gone"
-
+            android:padding="15dp"
             android:textAlignment="center"
             android:textColor="#C0D88F" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:visibility="gone"
-
+            android:padding="15dp"
             android:orientation="horizontal">
 
             <TextView
@@ -93,6 +93,17 @@
                 android:textColor="@android:color/holo_green_dark" />
 
         </LinearLayout>
+        <TextView
+            android:id="@+id/Resuwlt"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:fontFamily="sans-serif-black"
+            android:text="Flip your phone for full screen view!"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_green_dark" />
 
 
     </LinearLayout>

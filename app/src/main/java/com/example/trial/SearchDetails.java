@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class SearchDetails extends AppCompatActivity {
     EditText SearchBox;
     ImageButton Search;
     String query;
+    ProgressBar loading;
 
 
     private ArrayList<String> mTitles=new ArrayList<>();
@@ -65,6 +67,8 @@ public class SearchDetails extends AppCompatActivity {
         SearchBox=findViewById(R.id.searchbox);
         Search=findViewById(R.id.Search);
         RESULT=findViewById(R.id.result);
+        loading=findViewById(R.id.progerss_bar);
+        loading.setVisibility(View.GONE);
         RESULT.setText("");
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl("https://images-api.nasa.gov/")
@@ -80,6 +84,10 @@ public class SearchDetails extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                loading.setVisibility(View.VISIBLE);
+                if(SearchBox.getText().toString().isEmpty()){
+                    loading.setVisibility(View.GONE);
+                                    }
                 RESULT.setText("");
                 mDates.clear();
                 mHrefs.clear();
@@ -100,6 +108,7 @@ public class SearchDetails extends AppCompatActivity {
                             return;
                         }
                         else {
+                            loading.setVisibility(View.GONE);
                             Root result = response.body();
                             Collection collection=result.getCollection();
                             List<Items> Item=collection.getItems();

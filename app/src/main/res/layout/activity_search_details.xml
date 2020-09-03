@@ -57,7 +57,7 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:hint="Enter search query"
                     android:paddingLeft="20dp"
-                    android:textColor="#353934"
+                    android:textColor="#96CFD8"
                     android:textColorHint="@android:color/secondary_text_dark">
 
                 </EditText>
@@ -87,7 +87,16 @@
 
             </TextView>
 
+
         </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progerss_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center">
+
+        </ProgressBar>
 
 
         <androidx.recyclerview.widget.RecyclerView

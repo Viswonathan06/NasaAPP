@@ -81,6 +81,7 @@ public class GetPictureDetails extends AppCompatActivity {
 
                     }
                     else{
+                        picture.setClickable(false);
                         Glide.with(GetPictureDetails.this).load(data.getUrl()).into(picture);
 
                     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#30603B"
+    android:background="@drawable/photo_1435224654926_ecc9f7fa028c"
     android:orientation="vertical"
     tools:context=".SearchDetails">
 
@@ -28,8 +28,9 @@
                 android:paddingLeft="15dp"
                 android:paddingTop="10dp"
                 android:paddingRight="15dp"
-                android:paddingBottom="50dp"
-                android:text="NASA Image and Video Library.">
+                android:paddingBottom="15dp"
+                android:text="NASA Image and Video Library."
+                android:textColor="#F6FFF4">
 
             </TextView>
 
@@ -56,8 +57,8 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:hint="Enter search query"
                     android:paddingLeft="20dp"
-                    android:textColor="#353934"
-                    android:textColorHint="#3C353232">
+                    android:textColor="#A6F3FF"
+                    android:textColorHint="@android:color/secondary_text_dark">
 
                 </EditText>
 
@@ -66,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="7"
+                    android:layout_weight="10"
                     android:adjustViewBounds="true"
                     android:background="#00FF"
                     android:paddingRight="15dp"

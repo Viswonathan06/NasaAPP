@@ -31,16 +31,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
+
             <TextView
-                android:text="TITLE"
                 android:id="@+id/Title"
-                android:padding="15dp"
-                android:fontFamily="sans-serif-black"
-                android:textColor="@android:color/holo_green_dark"
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:padding="15dp"
                 android:paddingBottom="30dp"
-                android:layout_height="wrap_content">
+                android:text="TITLE"
+                android:textColor="#00C4FF">
 
 
             </TextView>
