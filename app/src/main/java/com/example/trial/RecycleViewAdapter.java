@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.trial.Model.ClickSearch.Root;
 import com.example.trial.Retrofit.JsonPlaceHolderApi;
 
@@ -63,9 +66,42 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: ");
          holder.title.setText(mTitles.get(position));
-        holder.href.setText(mHrefs.get(position));
+        holder.href.setText(mNasaID.get(position));
         holder.Date.setText(mDates.get(position));
 
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl("https://images-api.nasa.gov/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        jsonPlaceHolderApi=retrofit.create(JsonPlaceHolderApi.class);
+        Call<Root> call=jsonPlaceHolderApi.getRoot("asset",mNasaID.get(position));
+        call.enqueue(new Callback<Root>() {
+            @Override
+            public void onResponse(Call<Root> call, Response<Root> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(mContext, "Code: "+response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    Root result=response.body();
+
+                    String m=result.getCollection().getItems().get(0).getHref();
+                    m=m.replace("http","https");
+                    Glide.with(mContext).load(m).apply(new RequestOptions().circleCrop()).into(holder.imageView);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Root> call, Throwable t) {
+                Toast.makeText(mContext, "Code: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+
+        //Glide.with(mContext).load().into(holder.imageView);
         holder.parentlayout.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
@@ -93,7 +129,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
                              String m=result.getCollection().getItems().get(0).getHref();
                              intent.putExtra("Picture url",m);
-                             //Link for Picture url is passed but doesn't work
                              mContext.startActivity(intent);
                          }
                      }
@@ -118,6 +153,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         TextView title;
         TextView Date;
         TextView href;
+        ImageView imageView;
         LinearLayout parentlayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -125,6 +161,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             Date=itemView.findViewById(R.id.date);
             href=itemView.findViewById(R.id.href);
             parentlayout=itemView.findViewById(R.id.parent_layout);
+            imageView=itemView.findViewById(R.id.imageView);
 
 
         }

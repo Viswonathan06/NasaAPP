@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#252630"
-    tools:context=".SearchPicture">
+    android:background="#191B2E"
+    tools:context=".GetPictureDetails">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background" >
+            android:padding="15dp"
+            android:scaleType="fitXY"
 
-        </ImageView>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:srcCompat="@drawable/fgdgd" />
 
         <TextView
             android:id="@+id/vid_link"
@@ -27,8 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily=""
             android:layout_weight="1"
+            android:visibility="gone"
+            android:fontFamily=""
             android:textColor="#7899C3">
 
 
@@ -40,10 +41,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text=""
             android:fontFamily="sans-serif-black"
-            android:textColor="@android:color/holo_green_dark"
-            android:textAlignment="center" />
+            android:text=""
+
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_green_dark" />
 
         <TextView
             android:id="@+id/Description"
@@ -51,8 +54,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text=""
             android:fontFamily="sans-serif-condensed-light"
+            android:text=""
+            android:visibility="gone"
+
             android:textAlignment="center"
             android:textColor="#C0D88F" />
 
@@ -60,6 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:visibility="gone"
+
             android:orientation="horizontal">
 
             <TextView
@@ -69,11 +76,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:padding="15dp"
                 android:text=""
-                android:textColor="@android:color/holo_green_dark"
+                android:textAlignment="center"
 
-                android:textAlignment="center" />
+                android:textColor="@android:color/holo_green_dark" />
 
             <TextView
                 android:id="@+id/Copyright"
@@ -82,11 +88,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="1"
-                android:padding="10dp"
-                android:textIsSelectable="true"
-                android:textColor="@android:color/holo_green_dark"
+                android:text=""
 
-                android:text="" />
+                android:textColor="@android:color/holo_green_dark" />
 
         </LinearLayout>
 

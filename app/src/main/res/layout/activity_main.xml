@@ -41,54 +41,74 @@
         android:textAlignment="center"
         android:textColor="#DACAFF" />
 
-    <TextView
-        android:id="@+id/selectDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:gravity="center"
-        android:hint="Select the date"
-        android:textAlignment="center"
-        style="@style/TextAppearance.AppCompat.Large"
-        android:textColorHint="#D7E0FF"
-        android:textColor="#D7E0FF"/>
-
-    <Button
-        android:id="@+id/showPic"
-        style="@style/TextAppearance.AppCompat.Medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="Get info"
-        android:textColor="@android:color/background_dark" />
-
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/TextAppearance.AppCompat.Display1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="Search the NASA Library!"
-        android:textAlignment="center"
-        android:textColor="#DACAFF" />
-    <Button
-        android:id="@+id/Search"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        style="@style/TextAppearance.AppCompat.Medium"
-        android:fontFamily="sans-serif-condensed-light"
-        android:textColor="@android:color/background_dark"
-        android:layout_gravity="center"
-        android:text="Search" />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/selectDate"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:hint="Click me to select     date"
+            android:textAlignment="center"
+            android:textColorHint="#DACAFF" />
+
+        <ImageButton
+
+            android:id="@+id/showPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="10"
+            android:adjustViewBounds="true"
+            android:background="#00FF"
+            android:scaleType="fitXY"
+            android:paddingRight="15dp"
+            android:src="@drawable/check_1_icon">
+
+        </ImageButton>
+
+    </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="Search the NASA Library!"
+            android:textAlignment="center"
+            android:textColor="#DACAFF" />
 
+        <ImageButton
+            android:id="@id/Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/search_icon"
+            android:scaleType="fitXY"
+            android:layout_weight="20"
+            android:layout_gravity="center"
+            android:paddingRight="15dp"
+            android:background="#00FF"
+            android:adjustViewBounds="true"
+            >
 
+        </ImageButton>
+
+    </LinearLayout>
 
 
 

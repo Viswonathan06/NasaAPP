@@ -22,7 +22,8 @@ public class SearchPicture extends AppCompatActivity {
     String mTitles;
     String mDescript;
     String mDate;
-    String mUrl;
+    ArrayList<String> mUrl=new ArrayList<>();
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +39,15 @@ public class SearchPicture extends AppCompatActivity {
         mTitles=getIntent().getStringExtra("Picture Title");
         mDescript=getIntent().getStringExtra("Picture Descript");
         mDate=getIntent().getStringExtra("Date");
-        mUrl=getIntent().getStringExtra("Picture url");
+        url=getIntent().getStringExtra("Picture url");
 
 
-        Copyright.setText(mUrl);
         Result.setText(mTitles);
         Date.setText(mDate);
-        Glide.with(this).load(mUrl).into(picture);
+        url=url.replace("http","https");
+        Copyright.setText(url);
+
+        Glide.with(SearchPicture.this).load(url).into(picture);
         //Descrip.setText(mDescript);
 
 

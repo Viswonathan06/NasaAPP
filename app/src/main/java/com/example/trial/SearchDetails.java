@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +37,7 @@ public class SearchDetails extends AppCompatActivity {
     JsonPlaceHolderApi jsonPlaceHolderApi;
     TextView RESULT;
     EditText SearchBox;
-    Button Search;
+    ImageButton Search;
     String query;
 
 
@@ -82,7 +83,9 @@ public class SearchDetails extends AppCompatActivity {
                 RESULT.setText("");
                 mDates.clear();
                 mHrefs.clear();
+                mNasaID.clear();
                 mTitles.clear();
+                m="";
                 initRecyclerView();
                 query=SearchBox.getText().toString();
                 query.replace(" ","%");
@@ -134,14 +137,14 @@ public class SearchDetails extends AppCompatActivity {
 
             }
         });
-       /* Search.setOnClickListener(new View.OnClickListener() {
+        Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SearchBox.setText(SearchBox.getText());
             }
         });
 
-        */
+
 
 
 
